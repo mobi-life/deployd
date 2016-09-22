@@ -34,6 +34,9 @@
           <!-- ko if: selectedProp().type === 'number' -->
             <input type="text" class="number" data-bind="hasfocus: edit.focusInput, select: 'selectEditor', numberValue: edit.editValue, valueUpdate: 'afterkeydown'" />
           <!-- /ko -->
+          <!-- ko if: selectedProp().type === 'date' -->
+            <input type="text" class="number" data-bind="hasfocus: edit.focusInput, select: 'selectEditor', numberValue: edit.editValue, valueUpdate: 'afterkeydown'" />
+          <!-- /ko -->
           <!-- ko if: selectedProp().type === 'boolean' -->
             <label><input type="checkbox" data-bind="hasfocus: edit.focusInput, checked: edit.editValue" /><span data-bind="text: selectedProp().name"></span></label>
           <!-- /ko -->

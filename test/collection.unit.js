@@ -92,6 +92,33 @@ describe('collection', function(){
       var sanitized = r.sanitize({token: 123456});
       expect(sanitized.token).to.equal('123456');
     });
+
+    it('should convert dateString to date', function() {
+      var dateString = 'Wed Dec 03 1986 17:51:50 GMT+0100 (BST)';
+      var dateInMilliseconds = 534012710000;
+
+      var r = createCollection({
+        date: {
+          type: 'date'
+        }
+      });
+
+      var sanitized = r.sanitize({date: dateString});
+      expect(sanitized.date.getTime()).to.equal(dateInMilliseconds);
+    });
+
+    it('should convert number to date', function() {
+      var dateInMilliseconds = 534012710000;
+
+      var r = createCollection({
+        date: {
+          type: 'date'
+        }
+      });
+
+      var sanitized = r.sanitize({date: dateInMilliseconds});
+      expect(sanitized.date.getTime()).to.equal(dateInMilliseconds);
+    });
   });
 
   describe('.sanitizeQuery(query)', function(){
