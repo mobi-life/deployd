@@ -107,6 +107,18 @@ describe('collection', function(){
       expect(sanitized.date.getTime()).to.equal(dateInMilliseconds);
     });
 
+    it('should convert number to date', function() {
+      var dateInMilliseconds = 534012710000;
+
+      var r = createCollection({
+        date: {
+          type: 'date'
+        }
+      });
+
+      var sanitized = r.sanitize({date: dateInMilliseconds});
+      expect(sanitized.date.getTime()).to.equal(dateInMilliseconds);
+    });
   });
 
   describe('.sanitizeQuery(query)', function(){
